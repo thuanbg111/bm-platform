@@ -12,14 +12,23 @@ export function middleware(req: NextRequest) {
   const pathname = url.pathname;
 
   // =================================================
-  // ✅ 1. BỎ QUA HOÀN TOÀN SITE TĨNH /t/*
+  // ✅ 1. HANDLE SITE TĨNH /t/*
   // =================================================
   if (pathname.startsWith("/t/")) {
+    // /t/slug  hoặc /t/slug/
+    if (!pathname.endsWith(".html")) {
+      const clean = pathname.endsWith("/")
+        ? pathname.slice(0, -1)
+        : pathname;
+      return NextResponse.rewrite(
+        new URL(`${clean}/index.html`, req.url)
+      );
+    }
     return NextResponse.next();
   }
 
   // =================================================
-  // 2. BỎ QUA CÁC PATH MẶC ĐỊNH
+  // 2. BỎ QUA PATH HỆ THỐNG
   // =================================================
   if (
     pathname.startsWith("/_next") ||
@@ -30,13 +39,15 @@ export function middleware(req: NextRequest) {
   }
 
   // =================================================
-  // 3. MAP DOMAIN → SLUG (GIỮ NGUYÊN LOGIC CŨ)
+  // 3. DOMAIN → SLUG (CHO DOMAIN THẬT)
   // =================================================
   const host = normalizeHost(req.headers.get("host") || "");
   const slug = (tenants as Record<string, string>)[host];
 
   if (!slug) {
-    return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
+    return NextResponse.rewrite(
+      new URL("/no-tenant.html", req.url)
+    );
   }
 
   const targetPath =
@@ -45,9 +56,6 @@ export function middleware(req: NextRequest) {
   return NextResponse.rewrite(new URL(targetPath, req.url));
 }
 
-// =================================================
-// 4. MATCHER (GIỮ NGUYÊN)
-// =================================================
 export const config = {
   matcher: ["/((?!_next|api|favicon.ico).*)"],
 };
