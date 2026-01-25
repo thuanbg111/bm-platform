@@ -10,41 +10,29 @@ function normalizeHost(host: string) {
 export function middleware(req: NextRequest) {
   const url = req.nextUrl;
   const host = normalizeHost(req.headers.get("host") || "");
-  const pathname = url.pathname;
+  const p = url.pathname;
 
-  // bỏ qua file hệ thống
+  // ✅ BỎ QUA các đường dẫn static & nội bộ (quan trọng!)
   if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname === "/favicon.ico" ||
-    pathname.match(/\.(css|js|png|jpg|jpeg|svg|webp)$/)
+    p.startsWith("/_next") ||
+    p.startsWith("/api") ||
+    p === "/favicon.ico" ||
+    p === "/no-tenant.html" ||
+    p.startsWith("/t/") // ✅ cho phép truy cập thẳng /t/<slug>/...
   ) {
     return NextResponse.next();
   }
 
   const slug = (tenants as Record<string, string>)[host];
-
   if (!slug) {
     return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  // ===== LOGIC CẮT .html =====
-
-  // /about  -> /about.html
-  // /contact -> /contact.html
-  let targetPath = pathname;
-
-  if (pathname === "/") {
-    targetPath = "/index.html";
-  } else if (!pathname.endsWith(".html")) {
-    targetPath = `${pathname}.html`;
-  }
-
-  return NextResponse.rewrite(
-    new URL(`/t/${slug}${targetPath}`, req.url)
-  );
+  // ✅ domain thật -> tự map về /t/<slug>
+  const target = `/t/${slug}${p}`;
+  return NextResponse.rewrite(new URL(target, req.url));
 }
 
 export const config = {
-  matcher: ["/:path*"],
+  matcher: ["/((?!_next|api|favicon.ico).*)"],
 };
