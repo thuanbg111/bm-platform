@@ -8,10 +8,7 @@ function normalizeHost(host: string) {
 }
 
 function isStaticPath(p: string) {
-  // thư mục static
   if (p.startsWith("/assets/") || p.startsWith("/images/")) return true;
-
-  // file static theo đuôi (thêm gì thì thêm ở đây)
   return /\.(css|js|mjs|png|jpg|jpeg|svg|webp|ico|json|map|txt|woff|woff2|ttf|eot)$/i.test(p);
 }
 
@@ -20,12 +17,12 @@ export function middleware(req: NextRequest) {
   const host = normalizeHost(req.headers.get("host") || "");
   const p = url.pathname;
 
-  // ===== BỎ QUA NỘI BỘ NEXT =====
+  // Nội bộ Next
   if (p.startsWith("/_next") || p.startsWith("/api") || p === "/favicon.ico") {
     return NextResponse.next();
   }
 
-  // ===== CHO PHÉP TRUY CẬP THẲNG /t/... (để debug/kiểm tra) =====
+  // Cho phép truy cập thẳng /t/... (debug)
   if (p.startsWith("/t/")) {
     return NextResponse.next();
   }
@@ -33,32 +30,38 @@ export function middleware(req: NextRequest) {
   const slug = (tenants as Record<string, string>)[host];
 
   if (!slug) {
-    // chỉ rewrite đúng file này, đừng loop
     if (p === "/no-tenant.html") return NextResponse.next();
     return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  // ===== STATIC: assets/images/css/js/... phải rewrite sang /t/<slug> =====
+  // ✅ REDIRECT CẮT .html (URL đẹp)
+  // /index.html -> /
+  // /contact.html -> /contact
+  if (p.endsWith(".html")) {
+    const base = p.slice(0, -5); // bỏ ".html"
+    const cleanPath = base === "/index" ? "/" : base;
+
+    // Tránh redirect loop lặt vặt
+    if (cleanPath !== p) {
+      const to = new URL(cleanPath, req.url);
+      return NextResponse.redirect(to, 308);
+    }
+  }
+
+  // Static: rewrite sang /t/<slug>
   if (isStaticPath(p)) {
     return NextResponse.rewrite(new URL(`/t/${slug}${p}`, req.url));
   }
 
-  // ===== PAGE ROUTES =====
-  // /  -> /t/<slug>/index.html
+  // Pages
   if (p === "/") {
     return NextResponse.rewrite(new URL(`/t/${slug}/index.html`, req.url));
   }
 
-  // /contact.html -> /t/<slug>/contact.html (giữ link cũ)
-  if (p.endsWith(".html")) {
-    return NextResponse.rewrite(new URL(`/t/${slug}${p}`, req.url));
-  }
-
-  // /contact -> /t/<slug>/contact.html  (URL đẹp, không .html)
+  // /contact -> /t/<slug>/contact.html
   return NextResponse.rewrite(new URL(`/t/${slug}${p}.html`, req.url));
 }
 
 export const config = {
-  // KHÔNG loại /assets ra khỏi matcher vì ta cần rewrite nó
   matcher: ["/((?!_next|api|favicon.ico).*)"],
 };
