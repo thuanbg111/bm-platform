@@ -10,15 +10,16 @@ function normalizeHost(host: string) {
 export function middleware(req: NextRequest) {
   const url = req.nextUrl;
   const host = normalizeHost(req.headers.get("host") || "");
-  const p = url.pathname;
+  const pathname = url.pathname;
 
-  // ✅ BỎ QUA các route nội bộ (GIỮ NGUYÊN)
+  // ===== BỎ QUA STATIC & NỘI BỘ =====
   if (
-    p.startsWith("/_next") ||
-    p.startsWith("/api") ||
-    p === "/favicon.ico" ||
-    p === "/no-tenant.html" ||
-    p.startsWith("/t/")
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/assets") ||
+    pathname.startsWith("/images") ||
+    pathname === "/favicon.ico" ||
+    pathname === "/no-tenant.html"
   ) {
     return NextResponse.next();
   }
@@ -28,28 +29,26 @@ export function middleware(req: NextRequest) {
     return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  // ✅ Nếu là file static (css/js/img/font/...) => rewrite thẳng vào /t/<slug>/...
-  const isStatic =
-    p.startsWith("/assets/") ||
-    p.startsWith("/images/") ||
-    /\.(css|js|png|jpg|jpeg|svg|webp|ico|map|woff2?|ttf|eot)$/i.test(p);
-
-  if (isStatic) {
-    return NextResponse.rewrite(new URL(`/t/${slug}${p}`, req.url));
+  // ===== ROOT =====
+  if (pathname === "/") {
+    return NextResponse.rewrite(
+      new URL(`/t/${slug}/index.html`, req.url)
+    );
   }
 
-  // ✅ CẮT .html TRÊN URL (clean URL) nhưng vẫn trỏ đúng file .html
-  let targetPath = p;
-
-  if (p === "/") {
-    targetPath = "/index.html";
-  } else if (!p.endsWith(".html")) {
-    targetPath = `${p}.html`;
+  // ===== ĐÃ CÓ .html → giữ nguyên =====
+  if (pathname.endsWith(".html")) {
+    return NextResponse.rewrite(
+      new URL(`/t/${slug}${pathname}`, req.url)
+    );
   }
 
-  return NextResponse.rewrite(new URL(`/t/${slug}${targetPath}`, req.url));
+  // ===== URL ĐẸP → MAP SANG .html =====
+  return NextResponse.rewrite(
+    new URL(`/t/${slug}${pathname}.html`, req.url)
+  );
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|favicon.ico).*)"],
+  matcher: ["/:path*"],
 };
