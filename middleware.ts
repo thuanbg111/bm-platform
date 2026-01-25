@@ -9,22 +9,45 @@ function normalizeHost(host: string) {
 
 export function middleware(req: NextRequest) {
   const url = req.nextUrl;
-  const host = normalizeHost(req.headers.get("host") || "");
-  const p = url.pathname;
+  const pathname = url.pathname;
 
-  if (p.startsWith("/_next") || p.startsWith("/api") || p === "/favicon.ico") {
+  // =================================================
+  // ✅ 1. BỎ QUA HOÀN TOÀN SITE TĨNH /t/*
+  // =================================================
+  if (pathname.startsWith("/t/")) {
     return NextResponse.next();
   }
 
+  // =================================================
+  // 2. BỎ QUA CÁC PATH MẶC ĐỊNH
+  // =================================================
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname === "/favicon.ico"
+  ) {
+    return NextResponse.next();
+  }
+
+  // =================================================
+  // 3. MAP DOMAIN → SLUG (GIỮ NGUYÊN LOGIC CŨ)
+  // =================================================
+  const host = normalizeHost(req.headers.get("host") || "");
   const slug = (tenants as Record<string, string>)[host];
+
   if (!slug) {
     return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  const targetPath = `/t/${slug}${p === "/" ? "/index.html" : p}`;
+  const targetPath =
+    `/t/${slug}` + (pathname === "/" ? "/index.html" : pathname);
+
   return NextResponse.rewrite(new URL(targetPath, req.url));
 }
 
+// =================================================
+// 4. MATCHER (GIỮ NGUYÊN)
+// =================================================
 export const config = {
   matcher: ["/((?!_next|api|favicon.ico).*)"],
 };
