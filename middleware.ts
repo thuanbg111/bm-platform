@@ -14,22 +14,22 @@ export function middleware(req: NextRequest) {
 
   const slug = (tenants as Record<string, string>)[host];
 
+  // ===== DOMAIN KHÔNG MAP =====
   if (!slug) {
     return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  // ===== STATIC FILES (assets, images, css, js) =====
+  // ===== BỎ QUA FILE TĨNH & INTERNAL =====
   if (
-    pathname.startsWith("/assets/") ||
-    pathname.startsWith("/images/") ||
-    pathname.match(/\.(css|js|png|jpg|jpeg|svg|webp)$/)
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname === "/favicon.ico" ||
+    pathname.match(/\.(css|js|png|jpg|jpeg|svg|webp|ico|txt|json)$/)
   ) {
-    return NextResponse.rewrite(
-      new URL(`/t/${slug}${pathname}`, req.url)
-    );
+    return NextResponse.next();
   }
 
-  // ===== PAGE ROUTES =====
+  // ===== MAP ROUTE ĐẸP → FILE .HTML =====
   let targetPath = pathname;
 
   if (pathname === "/") {
@@ -44,5 +44,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/:path*"],
+  matcher: ["/((?!_next|api).*)"],
 };
