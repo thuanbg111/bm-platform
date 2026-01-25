@@ -10,29 +10,39 @@ function normalizeHost(host: string) {
 export function middleware(req: NextRequest) {
   const url = req.nextUrl;
   const host = normalizeHost(req.headers.get("host") || "");
-  const p = url.pathname;
-
-  // ✅ BỎ QUA các đường dẫn static & nội bộ (quan trọng!)
-  if (
-    p.startsWith("/_next") ||
-    p.startsWith("/api") ||
-    p === "/favicon.ico" ||
-    p === "/no-tenant.html" ||
-    p.startsWith("/t/") // ✅ cho phép truy cập thẳng /t/<slug>/...
-  ) {
-    return NextResponse.next();
-  }
+  const pathname = url.pathname;
 
   const slug = (tenants as Record<string, string>)[host];
+
   if (!slug) {
     return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  // ✅ domain thật -> tự map về /t/<slug>
-  const target = `/t/${slug}${p}`;
-  return NextResponse.rewrite(new URL(target, req.url));
+  // ===== STATIC FILES (assets, images, css, js) =====
+  if (
+    pathname.startsWith("/assets/") ||
+    pathname.startsWith("/images/") ||
+    pathname.match(/\.(css|js|png|jpg|jpeg|svg|webp)$/)
+  ) {
+    return NextResponse.rewrite(
+      new URL(`/t/${slug}${pathname}`, req.url)
+    );
+  }
+
+  // ===== PAGE ROUTES =====
+  let targetPath = pathname;
+
+  if (pathname === "/") {
+    targetPath = "/index.html";
+  } else if (!pathname.endsWith(".html")) {
+    targetPath = `${pathname}.html`;
+  }
+
+  return NextResponse.rewrite(
+    new URL(`/t/${slug}${targetPath}`, req.url)
+  );
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|favicon.ico).*)"],
+  matcher: ["/:path*"],
 };
