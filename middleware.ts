@@ -8,14 +8,17 @@ function normalizeHost(host: string) {
 }
 
 export function middleware(req: NextRequest) {
+  const url = req.nextUrl;
   const host = normalizeHost(req.headers.get("host") || "");
-  const pathname = req.nextUrl.pathname;
+  const p = url.pathname;
 
-  // bỏ qua file nội bộ
+  // ✅ BỎ QUA các đường dẫn static & nội bộ (quan trọng!)
   if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname === "/favicon.ico"
+    p.startsWith("/_next") ||
+    p.startsWith("/api") ||
+    p === "/favicon.ico" ||
+    p === "/no-tenant.html" ||
+    p.startsWith("/t/") // ✅ cho phép truy cập thẳng /t/<slug>/...
   ) {
     return NextResponse.next();
   }
@@ -25,8 +28,8 @@ export function middleware(req: NextRequest) {
     return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  // 👉 CHỈ rewrite tới thư mục
-  const target = `/t/${slug}${pathname === "/" ? "" : pathname}`;
+  // ✅ domain thật -> tự map về /t/<slug>
+  const target = `/t/${slug}${p}`;
   return NextResponse.rewrite(new URL(target, req.url));
 }
 
