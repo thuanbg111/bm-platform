@@ -11,25 +11,16 @@ export function middleware(req: NextRequest) {
   const url = req.nextUrl;
   const pathname = url.pathname;
 
-  // =================================================
-  // ✅ 1. HANDLE SITE TĨNH /t/*
-  // =================================================
+  // ==============================
+  // 1. CHO PHÉP TRUY CẬP STATIC /t/*
+  // ==============================
   if (pathname.startsWith("/t/")) {
-    // /t/slug  hoặc /t/slug/
-    if (!pathname.endsWith(".html")) {
-      const clean = pathname.endsWith("/")
-        ? pathname.slice(0, -1)
-        : pathname;
-      return NextResponse.rewrite(
-        new URL(`${clean}/index.html`, req.url)
-      );
-    }
     return NextResponse.next();
   }
 
-  // =================================================
-  // 2. BỎ QUA PATH HỆ THỐNG
-  // =================================================
+  // ==============================
+  // 2. BỎ QUA HỆ THỐNG
+  // ==============================
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -38,9 +29,9 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // =================================================
-  // 3. DOMAIN → SLUG (CHO DOMAIN THẬT)
-  // =================================================
+  // ==============================
+  // 3. DOMAIN → SLUG
+  // ==============================
   const host = normalizeHost(req.headers.get("host") || "");
   const slug = (tenants as Record<string, string>)[host];
 
@@ -50,8 +41,11 @@ export function middleware(req: NextRequest) {
     );
   }
 
+  // ==============================
+  // 4. REWRITE DOMAIN → /t/slug
+  // ==============================
   const targetPath =
-    `/t/${slug}` + (pathname === "/" ? "/index.html" : pathname);
+    pathname === "/" ? `/t/${slug}` : `/t/${slug}${pathname}`;
 
   return NextResponse.rewrite(new URL(targetPath, req.url));
 }
