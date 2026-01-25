@@ -12,14 +12,13 @@ export function middleware(req: NextRequest) {
   const host = normalizeHost(req.headers.get("host") || "");
   const p = url.pathname;
 
-  // ✅ BỎ QUA static & nội bộ (GIỮ NGUYÊN NHƯ MÀY ĐANG DÙNG)
+  // ✅ BỎ QUA các route nội bộ (GIỮ NGUYÊN)
   if (
     p.startsWith("/_next") ||
     p.startsWith("/api") ||
     p === "/favicon.ico" ||
     p === "/no-tenant.html" ||
-    p.startsWith("/t/") ||
-    p.match(/\.(css|js|png|jpg|jpeg|svg|webp|ico|txt|json)$/)
+    p.startsWith("/t/")
   ) {
     return NextResponse.next();
   }
@@ -29,9 +28,17 @@ export function middleware(req: NextRequest) {
     return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  // ===============================
-  // 🔥 CHỈ SỬA 1 ĐOẠN Ở ĐÂY
-  // ===============================
+  // ✅ Nếu là file static (css/js/img/font/...) => rewrite thẳng vào /t/<slug>/...
+  const isStatic =
+    p.startsWith("/assets/") ||
+    p.startsWith("/images/") ||
+    /\.(css|js|png|jpg|jpeg|svg|webp|ico|map|woff2?|ttf|eot)$/i.test(p);
+
+  if (isStatic) {
+    return NextResponse.rewrite(new URL(`/t/${slug}${p}`, req.url));
+  }
+
+  // ✅ CẮT .html TRÊN URL (clean URL) nhưng vẫn trỏ đúng file .html
   let targetPath = p;
 
   if (p === "/") {
@@ -40,9 +47,7 @@ export function middleware(req: NextRequest) {
     targetPath = `${p}.html`;
   }
 
-  return NextResponse.rewrite(
-    new URL(`/t/${slug}${targetPath}`, req.url)
-  );
+  return NextResponse.rewrite(new URL(`/t/${slug}${targetPath}`, req.url));
 }
 
 export const config = {
