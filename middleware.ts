@@ -8,19 +8,10 @@ function normalizeHost(host: string) {
 }
 
 export function middleware(req: NextRequest) {
-  const url = req.nextUrl;
-  const pathname = url.pathname;
+  const host = normalizeHost(req.headers.get("host") || "");
+  const pathname = req.nextUrl.pathname;
 
-  // ==============================
-  // 1. CHO PHÉP TRUY CẬP STATIC /t/*
-  // ==============================
-  if (pathname.startsWith("/t/")) {
-    return NextResponse.next();
-  }
-
-  // ==============================
-  // 2. BỎ QUA HỆ THỐNG
-  // ==============================
+  // bỏ qua file nội bộ
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -29,25 +20,14 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // ==============================
-  // 3. DOMAIN → SLUG
-  // ==============================
-  const host = normalizeHost(req.headers.get("host") || "");
   const slug = (tenants as Record<string, string>)[host];
-
   if (!slug) {
-    return NextResponse.rewrite(
-      new URL("/no-tenant.html", req.url)
-    );
+    return NextResponse.rewrite(new URL("/no-tenant.html", req.url));
   }
 
-  // ==============================
-  // 4. REWRITE DOMAIN → /t/slug
-  // ==============================
-  const targetPath =
-    pathname === "/" ? `/t/${slug}` : `/t/${slug}${pathname}`;
-
-  return NextResponse.rewrite(new URL(targetPath, req.url));
+  // 👉 CHỈ rewrite tới thư mục
+  const target = `/t/${slug}${pathname === "/" ? "" : pathname}`;
+  return NextResponse.rewrite(new URL(target, req.url));
 }
 
 export const config = {
