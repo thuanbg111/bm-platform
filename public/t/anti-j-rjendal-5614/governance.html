@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang='et'>
+<head>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width,initial-scale=1'/>
+  <title>Juriidiline teave — Anti Jürjendal</title>
+  <link rel='stylesheet' href='assets/styles.css'/>
+  <link rel='icon' href='images/logo.png'>
+</head>
+<body class="theme-3 theme-4">
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Avaleht">
+      <img src="images/logo.png" alt="Anti Jürjendal logo">
+    </a>
+    <button class="menu-toggle" aria-label="Lülita menüü" aria-expanded="false">☰</button>
+    <nav class="links" aria-label="Peamenüü">
+      <a href="about.html">Meist</a>
+      <a href="programs.html">Teenused</a>
+      <a href="governance.html">Juriidiline teave</a>
+      <a href="contact.html" class="btn btn-primary">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class='section container split'>
+  <div>
+    <h1>Juriidiline teave ja juhtimine</h1>
+    <p><strong>Õiguslik staatus:</strong> Eestis registreeritud osaühing (OÜ).</p>
+    <p><strong>Registrikood:</strong> 17055614</p>
+    <p><strong>Registrijärgne aadress:</strong><br>Harju maakond, Rae vald, Peetri alevik, Pargi tee 11-9, 75312</p>
+    <p class='small'>
+      Anti Jürjendal tegutseb vastavalt Eesti äriseadustikule ja muudele kehtivatele õigusaktidele. Ettevõtte asutamisdokumendid, põhikiri, juhatuse ja osanike andmed ning majandusaasta aruanded esitatakse ja uuendatakse nõuetele vastavalt Eesti äriregistris.
+    </p>
+    <p class='small'>
+      Juhatus vastutab igapäevase juhtimise, riskide maandamise ning selle eest, et ettevõte täidaks lepingulisi ja seadusest tulenevaid kohustusi. Vajaduse korral kaasatakse nõustajaid, et tagada vastavus nii raamatupidamis-, maksu- kui ka andmekaitsenõuetele.
+    </p>
+  </div>
+  <figure class='figure'>
+    <img src='images/programs.jpg' alt='Ettevõtte juriidilised dokumendid'>
+  </figure>
+</main>
+
+<!-- LISASEKTSIOON + ẢNH THỨ HAI -->
+<section class="section container split">
+  <figure class="figure">
+    <img src="images/land.jpg" alt="Koosolek ja otsuste tegemine">
+  </figure>
+  <div>
+    <h2>Juhtimise põhimõtted</h2>
+    <p>Otsused tehakse läbipaistvalt ja dokumenteeritult. Olulisemad kokkulepped vormistatakse kirjalikult, et nii klientidel kui ka partneritel oleks kindel arusaam õigustest ja kohustustest.</p>
+    <p>Oluline on ka pidev sisekontroll: jälgime, et lepingud, hinnastamine ja töökorraldus oleksid kooskõlas Eesti õigusega ning ettevõtte sisemise töökorra ja väärtustega.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container grid">
+    <div>
+      <img src="images/logo.png" alt="" style="width:160px;height:auto;margin-bottom:.5rem;">
+      <div class="small">© <span id="year"></span> Anti Jürjendal</div>
+      <div class="small">Eestis registreeritud osaühing (OÜ) • registrikood: 17055614</div>
+    </div>
+    <div>
+      <div class="small"><strong>Meist:</strong><br>Professionaalsed teenused kooskõlas Eesti õigusaktidega.</div>
+    </div>
+    <div>
+      <div class="small">
+        <strong>Registrijärgne aadress:</strong><br>Harju maakond, Rae vald, Peetri alevik, Pargi tee 11-9, 75312<br>
+        <strong>E-post:</strong> <a href="mailto:contact@antijurjendal.munglunghe.io.vn">contact@antijurjendal.munglunghe.io.vn</a><br>
+        <strong>Telefon:</strong> <a href="tel:+37257489833">+37257489833</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const b=document.querySelector('.menu-toggle'), l=document.querySelector('.links');
+  if(b&&l){
+    b.addEventListener('click',()=>{
+      const o=getComputedStyle(l).display==='flex';
+      l.style.display=o?'none':'flex';
+      b.setAttribute('aria-expanded',o?'false':'true');
+    });
+  }
+  const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang='et'>
+<head>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width,initial-scale=1'/>
+  <title>Teenused — Äristandard OÜ</title>
+  <link rel='stylesheet' href='assets/styles.css'/>
+  <link rel='icon' href='images/logo.png'>
+  <meta name="data-ein" content="17055560">
+  <meta name="data-name" content="Äristandard OÜ">
+  <meta name="data-email" content="contact@aristandard.munglunghe.io.vn">
+  <meta name="data-phone" content="+37258196392">
+  <meta name="data-address" content="Harju maakond, Tallinn, Kesklinna linnaosa, Ahtri tn 8, 10151">
+  <meta name="data-map" content="Harju+maakond%2C+Tallinn%2C+Kesklinna+linnaosa%2C+Ahtri+tn+8%2C+10151">
+</head>
+<body class="theme-4 theme-4">
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Avaleht"><img src="images/logo.png" alt="Äristandard OÜ logo"></a>
+    <button class="menu-toggle" aria-label="Lülita menüü" aria-expanded="false">☰</button>
+    <nav class="links" aria-label="Peamenüü">
+      <a href="about.html">Meist</a>
+      <a href="programs.html">Teenused</a>
+      <a href="governance.html">Juriidiline teave</a>
+      <a href="contact.html" class="btn btn-primary">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class='section container'>
+  <h1>Teenused</h1>
+  <p>Allpool on toodud peamised teenusevaldkonnad, mille kaudu Äristandard OÜ toetab kliente üle Eesti. Iga projekt algab selgest eesmärgist ja lõppeb dokumenteeritud tulemusega, et oleks lihtne näha, mida on tehtud ja mis on järgmised sammud.</p>
+
+  <div class='grid-3'>
+    <article class='card'>
+      <img src='images/land.jpg' alt='Konsultatsioon'>
+      <div class='card-body'>
+        <h3>Konsultatsioon</h3>
+        <p>Praktiline nõustamine ja planeerimine, et eesmärgid saaksid täidetud õigeaegselt ja kokkulepitud eelarve piires. Aitame valida sobivad lahendused ja väldime üleliigseid kulusid.</p>
+      </div>
+    </article>
+    <article class='card'>
+      <img src='images/jobs.jpg' alt='Teostus'>
+      <div class='card-body'>
+        <h3>Teostus</h3>
+        <p>Projektide käed-külge elluviimine koos selgete vaheetappide, regulaarsete ülevaadete ja kvaliteedikontrolliga. Fookus on sellel, et lubatud töö saaks tehtud korrektselt ja kokkulepitud kujul.</p>
+      </div>
+    </article>
+    <article class='card'>
+      <img src='images/relief.jpg' alt='Tugi'>
+      <div class='card-body'>
+        <h3>Tugi</h3>
+        <p>Paindlik tugi ja järelteenindus, mis aitab teil tegevust jätkata ilma tarbetute katkestusteta. Oleme olemas ka pärast esialgse projekti lõppu.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- LISASEKTSIOON + ẢNH THỨ TƯ -->
+  <section class="section split">
+    <div>
+      <h2>Kuidas teenused kombineeritakse</h2>
+      <p>Enamik projekte sisaldab mitut teenust korraga – esmalt konsultatsioon, seejärel teostus ja lõpuks tugi. See annab võimaluse katta kogu protsess ühest kohast ja hoida vastutus selgelt ühe partneri käes.</p>
+      <p>Vajaduse korral saame teenused siduda ka etapiviisiliselt: alustada lühikese nõustamisega, mille põhjal otsustate ise, kas liigume edasi täisteenuse või ainult konkreetse tööetapiga.</p>
+    </div>
+    <figure class="figure">
+      <img src="images/hero.jpg" alt="Teenuste kombineeritud lahendused">
+    </figure>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container grid">
+    <div>
+      <img src="images/logo.png" alt="" style="width:160px;height:auto;margin-bottom:.5rem;">
+      <div class="small">© <span id="year"></span> Äristandard OÜ</div>
+      <div class="small">Eestis registreeritud osaühing (OÜ) • registrikood: 17055560</div>
+    </div>
+    <div>
+      <div class="small"><strong>Meist:</strong><br>Pakku­me sirgjoonelisi teenuseid ja usaldusväärset teostust üle Eesti.</div>
+    </div>
+    <div>
+      <div class="small">
+        <strong>Registrijärgne aadress:</strong><br>Harju maakond, Tallinn, Kesklinna linnaosa, Ahtri tn 8, 10151<br>
+        <strong>E-post:</strong> <a href="mailto:contact@aristandard.munglunghe.io.vn">contact@aristandard.munglunghe.io.vn</a><br>
+        <strong>Telefon:</strong> <a href="tel:+37258196392">+37258196392</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const b=document.querySelector('.menu-toggle'), l=document.querySelector('.links');
+  if(b&&l){
+    b.addEventListener('click',()=>{
+      const o=getComputedStyle(l).display==='flex';
+      l.style.display=o?'none':'flex';
+      b.setAttribute('aria-expanded',o?'false':'true');
+    });
+  }
+  const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
