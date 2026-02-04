@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>MARIGOLD COLLABORATIVE – Nonprofit • 2025</title>
+<link rel="stylesheet" href="assets/styles.css"/>
+<link rel="icon" href="images/logo.png"/>
+
+<meta name="data-ein" content="993220823">
+<meta name="data-name" content="MARIGOLD COLLABORATIVE">
+<meta name="data-email" content="contact@marigoldcollaborative.novyra.io.vn">
+<meta name="data-phone" content="+17634123891">
+<meta name="data-address" content="920 DEL RIO AVE,
+SAN LUIS OBISPO, CA 93405">
+<meta name="data-map" content="920+DEL+RIO+AVE,+SAN+LUIS+OBISPO,+CA+93405">
+  <meta name="description" content="We are a 501(c)(3) organization advancing community services, education, and direct relief through transparent programs, local partnerships, and measurable outcomes.">
+</head>
+<body>
+<div style="position:absolute;left:-9999px;top:-9999px;opacity:0" data-uniq="{{UNIQUE_BLOB}}">
+  <span>We are a 501(c)(3) organization advancing community services, education, and direct relief through transparent programs, local partnerships, and measurable outcomes.</span><svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="5" fill="#2b6cb0"/></svg><img src="images/community.jpg" width="1" height="1" alt="" loading="lazy"/>
+</div>
+
+
+<header>
+  <div class="header-inner">
+    <nav>
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="index.html"><img src="images/logo.png" style="width:150px"></a>
+    <nav>
+      <a href="governance.html">Governance</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="cbebce5f16f">
+  <div class="hero-wrap">
+    <div>
+      <h1>MARIGOLD COLLABORATIVE</h1>
+      <p class="ced41afb10b">
+        A U.S. <strong>501(c)(3)</strong> charitable organization (EIN: 993220823) advancing
+        community well-being through equitable access to essential services,
+        neighborhood revitalization, and long-term support systems.
+      </p>
+      <p>
+        We partner with local leaders, public agencies, and volunteers to design,
+        implement, and evaluate programs that strengthen vulnerable communities.
+      </p>
+    </div>
+    <img src="images/hero.jpg" alt="Community support">
+  </div>
+</div>
+
+<section class="section">
+  <h2>Our Focus Areas</h2>
+
+  <div class="zig">
+    <img src="images/jobs.jpg" alt="">
+    <div>
+      <h3>Community Well-Being</h3>
+      <p>
+        Our initiatives address immediate community needs while building long-term resilience.
+        We connect households to reliable food distribution, health navigation, financial
+        education, and personalized case support.
+      </p>
+    </div>
+  </div>
+
+  <div class="zig">
+    <div>
+      <h3>Housing & Stability</h3>
+      <p>
+        We collaborate with partners to prevent displacement, provide rental support,
+        and strengthen pathways into stable housing. Our programs emphasize dignity,
+        empowerment, and sustainable outcomes.
+      </p>
+    </div>
+    <img src="images/land.jpg" alt="">
+  </div>
+
+  <h2>Impact Metrics</h2>
+  <div class="metrics">
+    <div class="metric"><div class="num">12k+</div>Services Delivered</div>
+    <div class="metric"><div class="num">7,400+</div>Volunteer Hours</div>
+    <div class="metric"><div class="num">380+</div>Families Supported</div>
+  </div>
+
+  <h2 style="margin-top:2rem">Community Gallery</h2>
+  <div class="gallery">
+    <img src="images/finance.jpg" alt="">
+    <img src="images/education.jpg" alt="">
+    <img src="images/community.jpg" alt="">
+    <img src="images/programs.jpg" alt="">
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <img src="images/logo.png" style="width:130px;margin-bottom:.5rem">
+      <div class="small">© <span id="year"></span> MARIGOLD COLLABORATIVE</div>
+      <div class="small">501(c)(3) • EIN: 993220823</div>
+    </div>
+    <div><div class="small"><strong>Address:</strong> 920 DEL RIO AVE,
+SAN LUIS OBISPO, CA 93405</div><div class="small"><strong>Email:</strong> contact@marigoldcollaborative.novyra.io.vn</div><div class="small"><strong>Phone:</strong> +17634123891</div></div>
+    <div><div class="small"><strong>Mission:</strong> Strengthening communities through equitable access, support, and opportunity.</div></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const y=document.getElementById("year");
+  if(y) y.textContent=new Date().getFullYear();
+
+  function g(n){let el=document.querySelector(`meta[name="${n}"]`);return el?el.content:"";}
+  function h(s){let x=2166136261>>>0;for(let i=0;i<s.length;i++){x^=s.charCodeAt(i);x=(x*16777619)>>>0;}return x>>>0;}
+
+  let id=(g("data-ein")||"x").replace(/\D+/g,"") || g("data-name");
+  let k=h(String(id));
+  let H=k%360,S=55+(k%20),L=46;
+  document.documentElement.style.setProperty("--brand",`hsl(${H} ${S}% ${L}%)`);
+})();
+</script>
+</body>
+</html>
