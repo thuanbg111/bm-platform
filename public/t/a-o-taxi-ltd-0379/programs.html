@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Services &amp; activities — A&O TAXI LTD</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-1">
+  <div class="shell">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <img src="images/logo.png" alt="A&O TAXI LTD logo">
+          <div class="brand-text">
+            <div class="brand-name">A&O TAXI LTD</div>
+            <div class="badge-small">Company No: 14160379</div>
+          </div>
+        </div>
+        <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav-links js-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="about.html">Company profile</a>
+          <a href="programs.html" class="is-active">Services</a>
+          <a href="governance.html">Governance</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <section class="card card-soft">
+          <h1 class="section-title">Services and activities</h1>
+          <p class="section-sub">
+            A&O TAXI LTD provides practical, contract-based services. All services are agreed in writing and delivered
+            either directly or via carefully controlled third-party arrangements.
+          </p>
+          <div class="split">
+            <div>
+              <h2 class="section-title">Examples of work we carry out</h2>
+              <ul class="feature-list">
+                <li>Coordinating logistics and day-to-day operations in support of client activities.</li>
+                <li>Managing small projects with defined outputs, delivery dates and reporting milestones.</li>
+                <li>Providing back-office administration, documentation and communication support.</li>
+                <li>Acting as a single point of contact for UK-based practical arrangements.</li>
+                <li>Preparing summaries and records so that clients can evidence work completed.</li>
+              </ul>
+            </div>
+            <div>
+              <img src="images/programs.jpg" alt="Operational work carried out by the company" style="border-radius:20px;box-shadow:var(--shadow-lg);">
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">Approach to clients</h2>
+          <p class="section-sub">How we typically work with organisations and private clients.</p>
+          <div class="tiles">
+            <article class="tile">
+              <img src="images/community.jpg" alt="Initial scoping and planning">
+              <div class="tile-body">
+                <h3>Scoping &amp; planning</h3>
+                <p>We discuss requirements, confirm what is needed and provide a clear written scope of work.</p>
+              </div>
+            </article>
+            <article class="tile">
+              <img src="images/education.jpg" alt="Delivery across different locations">
+              <div class="tile-body">
+                <h3>Delivery</h3>
+                <p>Work is carried out according to the agreed plan, with periodic updates shared with the client.</p>
+              </div>
+            </article>
+            <article class="tile">
+              <img src="images/relief.jpg" alt="Review and follow up">
+              <div class="tile-body">
+                <h3>Review &amp; follow-up</h3>
+                <p>We provide a summary of what has been done, including any follow-up actions requested.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      © <span id="year"></span> A&O TAXI LTD — Company No: 14160379
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if(btn && nav){
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if(y){ y.textContent = new Date().getFullYear(); }
+  </script>
+</body>
+</html>

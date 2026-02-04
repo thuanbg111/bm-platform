@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Services &amp; activities – A HUGHES TM LTD</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-4">
+  <div class="page">
+    <header class="site-header">
+      <div class="brand">
+        <img src="images/logo.png" class="brand-logo" alt="A HUGHES TM LTD logo">
+        <div class="brand-text">
+          <div class="brand-name">A HUGHES TM LTD</div>
+          <div class="brand-meta">Company No: 14330224</div>
+        </div>
+      </div>
+      <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav class="nav js-nav" aria-label="Main navigation">
+        <a href="index.html">Overview</a>
+        <a href="about.html">Company profile</a>
+        <a href="programs.html" class="is-active">Services</a>
+        <a href="governance.html">Governance</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="card card-soft">
+        <h1 class="section-title">Services and activities</h1>
+        <p class="section-sub">
+          A HUGHES TM LTD works on a range of practical assignments. Examples below show the type of work that may be carried
+          out for clients.
+        </p>
+        <div class="split">
+          <div>
+            <ul class="feature-list">
+              <li>Coordinating day-to-day logistics and on-the-ground arrangements for specific projects.</li>
+              <li>Managing small assignments with clear deliverables, timeframes and agreed documentation.</li>
+              <li>Providing back-office administration, reporting and information flows for clients.</li>
+              <li>Acting as a central point of contact for operational matters within the United Kingdom.</li>
+              <li>Keeping written records and summaries of the services delivered.</li>
+            </ul>
+          </div>
+          <div>
+            <img src="images/programs.jpg"
+                 alt="Operational work carried out by A HUGHES TM LTD"
+                 style="border-radius:20px;box-shadow:var(--shadow-lg);width:100%;height:auto;">
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">How we work with clients</h2>
+        <p class="section-sub">
+          A simple process used for most of our engagements.
+        </p>
+        <div class="tile-grid">
+          <article class="tile">
+            <img src="images/community.jpg" alt="Initial scoping and planning">
+            <div class="tile-body">
+              <h3>1. Scoping</h3>
+              <p>We discuss requirements, define the scope and confirm whether the company can assist.</p>
+            </div>
+          </article>
+          <article class="tile">
+            <img src="images/education.jpg" alt="Delivery of agreed work">
+            <div class="tile-body">
+              <h3>2. Agreement &amp; delivery</h3>
+              <p>Services are set out in writing and delivered according to the agreed plan.</p>
+            </div>
+          </article>
+          <article class="tile">
+            <img src="images/relief.jpg" alt="Review and follow up">
+            <div class="tile-body">
+              <h3>3. Review &amp; records</h3>
+              <p>We provide a summary of work, retain relevant records and agree any follow-up steps.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      © <span id="year"></span> A HUGHES TM LTD — Company No: 14330224
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

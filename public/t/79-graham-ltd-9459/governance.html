@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Governance &amp; oversight – 79 GRAHAM LTD</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-3">
+  <div class="page">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-block">
+          <img src="images/logo.png" alt="79 GRAHAM LTD logo" class="brand-logo">
+          <div class="brand-text">
+            <div class="brand-name">79 GRAHAM LTD</div>
+            <div class="brand-meta">
+              Registered in England &amp; Wales • Company No: 14019459
+            </div>
+          </div>
+        </div>
+        <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav js-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="about.html">Company profile</a>
+          <a href="programs.html">Services</a>
+          <a href="governance.html" class="is-active">Governance</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card card-soft">
+        <h1 class="section-title">Governance and oversight</h1>
+        <p class="section-sub">
+          Directors of 79 GRAHAM LTD are responsible for the overall management of the company and for ensuring that legal and
+          contractual obligations are met.
+        </p>
+        <div class="split">
+          <div>
+            <ul class="feature-list">
+              <li>Maintaining statutory registers and ensuring that required filings are made to Companies House.</li>
+              <li>Reviewing and approving agreements entered into on behalf of the company.</li>
+              <li>Monitoring the delivery of services in line with the written scope of work.</li>
+              <li>Keeping records of contracts, invoices and correspondence for future reference.</li>
+              <li>Using official company contact details for formal communications with clients and platforms.</li>
+            </ul>
+          </div>
+          <div class="split-figure">
+            <img src="images/land.jpg" alt="Structured governance and reporting">
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Governance in practice</h2>
+        <p class="section-sub">
+          A simple outline of how oversight is applied to typical projects.
+        </p>
+        <div class="split">
+          <div>
+            <ol class="timeline">
+              <li class="timeline-item">
+                <div class="timeline-title">Initial review</div>
+                <div class="timeline-body">
+                  Proposed work is reviewed to confirm that it fits within the company’s activities and capacity.
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-title">Agreement and documentation</div>
+                <div class="timeline-body">
+                  An agreement is drafted and signed, setting out responsibilities and key information.
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-title">Monitoring of delivery</div>
+                <div class="timeline-body">
+                  Progress is monitored and any material changes are discussed with the client where necessary.
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-title">Reporting &amp; record keeping</div>
+                <div class="timeline-body">
+                  Work carried out is summarised, and records are retained for audit and verification.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="split-figure">
+            <img src="images/jobs.jpg" alt="Directors overseeing activities">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      © <span id="year"></span> 79 GRAHAM LTD — Company No: 14019459
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

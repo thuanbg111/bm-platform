@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Services &amp; activities – 79 GRAHAM LTD</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-3">
+  <div class="page">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-block">
+          <img src="images/logo.png" alt="79 GRAHAM LTD logo" class="brand-logo">
+          <div class="brand-text">
+            <div class="brand-name">79 GRAHAM LTD</div>
+            <div class="brand-meta">
+              Registered in England &amp; Wales • Company No: 14019459
+            </div>
+          </div>
+        </div>
+        <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav js-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="about.html">Company profile</a>
+          <a href="programs.html" class="is-active">Services</a>
+          <a href="governance.html">Governance</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card card-soft">
+        <h1 class="section-title">Services and activities</h1>
+        <p class="section-sub">
+          The company works on a range of practical assignments. The examples below describe the types of services that
+          may be provided for clients.
+        </p>
+        <div class="split">
+          <div>
+            <ul class="feature-list">
+              <li>Coordinating day-to-day operations for specific projects within the United Kingdom.</li>
+              <li>Providing a central point of contact for clients who require practical support on the ground.</li>
+              <li>Carrying out clearly defined tasks under written instructions, with agreed reporting.</li>
+              <li>Offering both short-term assistance and longer running support where appropriate.</li>
+              <li>Retaining records of work completed so the services provided can be evidenced.</li>
+            </ul>
+          </div>
+          <div class="split-figure">
+            <img src="images/programs.jpg" alt="Typical activities carried out by 79 GRAHAM LTD">
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Example areas of work</h2>
+        <p class="section-sub">
+          Illustrative examples. The exact scope for any client is set out in its own agreement.
+        </p>
+        <div class="tile-grid">
+          <article class="tile">
+            <img src="images/land.jpg" alt="Local coordination">
+            <div class="tile-body">
+              <h3>Local coordination</h3>
+              <p>Arranging meetings, site visits and other local logistics based on agreed plans.</p>
+            </div>
+          </article>
+          <article class="tile">
+            <img src="images/education.jpg" alt="Administrative support">
+            <div class="tile-body">
+              <h3>Administrative support</h3>
+              <p>Preparing basic documentation, collating information and forwarding updates to clients.</p>
+            </div>
+          </article>
+          <article class="tile">
+            <img src="images/jobs.jpg" alt="On-the-ground assistance">
+            <div class="tile-body">
+              <h3>On-the-ground assistance</h3>
+              <p>Providing practical help on site as agreed, with summaries of work completed.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      © <span id="year"></span> 79 GRAHAM LTD — Company No: 14019459
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

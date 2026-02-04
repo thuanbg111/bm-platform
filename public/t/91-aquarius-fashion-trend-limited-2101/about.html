@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Company profile – 91 AQUARIUS FASHION TREND LIMITED</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-5">
+  <div class="page">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-block">
+          <img src="images/logo.png" alt="91 AQUARIUS FASHION TREND LIMITED logo" class="brand-logo">
+          <div class="brand-text">
+            <div class="brand-name">91 AQUARIUS FASHION TREND LIMITED</div>
+            <div class="brand-meta">
+              Registered in England &amp; Wales • Company No: 14332101
+            </div>
+          </div>
+        </div>
+        <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav js-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="about.html" class="is-active">Company profile</a>
+          <a href="programs.html">Services</a>
+          <a href="governance.html">Governance</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card card-soft">
+        <h1 class="section-title">Company profile</h1>
+        <p class="section-sub">
+          91 AQUARIUS FASHION TREND LIMITED is a private company limited by shares, incorporated and registered in the United Kingdom and operating
+          from its registered office at FLAT 17, PRINCES COURT, LONDON, UNITED KINGDOM, SW3 1ES.
+        </p>
+        <div class="split">
+          <div>
+            <p>
+              The company provides clearly scoped services for clients and partners. Each piece of work is agreed in
+              writing before it begins, with confirmation of the deliverables, timeframes and any reporting that will be
+              provided. This approach is designed to give clients confidence in how the company operates.
+            </p>
+            <p>
+              Directors are responsible for the company’s overall management and ensuring that statutory filings are
+              made to Companies House. Records of contracts, correspondence and work carried out are retained so that
+              the activities of the company can be demonstrated when required.
+            </p>
+            <p>
+              This website summarises the company’s purpose, the type of assignments it undertakes and how to contact
+              the office with questions, including enquiries relating to verification and documentation.
+            </p>
+          </div>
+          <div class="split-figure">
+            <img src="images/about.jpg" alt="Team and operations of 91 AQUARIUS FASHION TREND LIMITED">
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Key details</h2>
+        <p class="section-sub">
+          Public information that can be checked against official registers.
+        </p>
+        <div class="split">
+          <div>
+            <div class="info-grid">
+              <div>
+                <div class="info-label">Registered name</div>
+                <div class="info-value">91 AQUARIUS FASHION TREND LIMITED</div>
+              </div>
+              <div>
+                <div class="info-label">Company number</div>
+                <div class="info-value">14332101</div>
+              </div>
+              <div>
+                <div class="info-label">Registered office</div>
+                <div class="info-value">FLAT 17, PRINCES COURT, LONDON, UNITED KINGDOM, SW3 1ES</div>
+              </div>
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value"><a href="mailto:contact@91aquarius.altriva.io.vn">contact@91aquarius.altriva.io.vn</a></div>
+              </div>
+              <div>
+                <div class="info-label">Telephone</div>
+                <div class="info-value"><a href="tel:+447532639901">+447532639901</a></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="gallery">
+              <img src="images/community.jpg" alt="Work with partners and communities">
+              <img src="images/education.jpg" alt="Training or operational facilities">
+              <img src="images/jobs.jpg" alt="Staff and contractors at work">
+              <img src="images/relief.jpg" alt="Logistics and practical support">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      © <span id="year"></span> 91 AQUARIUS FASHION TREND LIMITED — Company No: 14332101
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

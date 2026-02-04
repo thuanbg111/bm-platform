@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact – A C ELECTRICS (BARROW) LTD</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-3">
+  <div class="page">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-block">
+          <img src="images/logo.png" alt="A C ELECTRICS (BARROW) LTD logo" class="brand-logo">
+          <div class="brand-text">
+            <div class="brand-name">A C ELECTRICS (BARROW) LTD</div>
+            <div class="brand-meta">
+              Registered in England &amp; Wales • Company No: 14333423
+            </div>
+          </div>
+        </div>
+        <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav js-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="about.html">Company profile</a>
+          <a href="programs.html">Services</a>
+          <a href="governance.html">Governance</a>
+          <a href="contact.html" class="is-active">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card card-soft">
+        <h1 class="section-title">Contact details</h1>
+        <p class="section-sub">
+          Use the details below to contact the company about services, documentation or verification questions.
+        </p>
+        <div class="contact-grid">
+          <div>
+            <div class="info-grid">
+              <div>
+                <div class="info-label">Registered name</div>
+                <div class="info-value">A C ELECTRICS (BARROW) LTD</div>
+              </div>
+              <div>
+                <div class="info-label">Company number</div>
+                <div class="info-value">14333423</div>
+              </div>
+              <div>
+                <div class="info-label">Registered office</div>
+                <div class="info-value">121-123 DUKE STREET, BARROW IN FURNESS, UNITED KINGDOM, LA14 1XA</div>
+              </div>
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value"><a href="mailto:contact@acelectrics.altrano.io.vn">contact@acelectrics.altrano.io.vn</a></div>
+              </div>
+              <div>
+                <div class="info-label">Telephone</div>
+                <div class="info-value"><a href="tel:+447450844939">+447450844939</a></div>
+              </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top:1.3rem;">Enquiry form</h2>
+            <form class="form-grid" id="contact-form" action="#" method="post" novalidate>
+              <label>
+                Your name
+                <input type="text" name="name" placeholder="Your full name" required>
+              </label>
+              <label>
+                Email address
+                <input type="email" name="email" placeholder="you@example.com" required>
+              </label>
+              <label>
+                Telephone
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+44…"
+                  inputmode="tel"
+                  pattern="[0-9+ ]*"
+                  required
+                  oninput="this.value=this.value.replace(/[^0-9+ ]/g,'');"
+                >
+              </label>
+              <label>
+                Message
+                <textarea name="message" placeholder="Please tell us how we can help." required></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary">Submit enquiry</button>
+              <div class="section-sub js-form-status" style="margin-top:0.4rem;"></div>
+            </form>
+          </div>
+          <div>
+            <h2 class="section-title">Location</h2>
+            <p class="section-sub">Our registered office in the United Kingdom.</p>
+            <div class="map-frame">
+              <iframe
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=121-123+DUKE+STREET%2C+BARROW+IN+FURNESS%2C+UNITED+KINGDOM%2C+LA14+1XA&output=embed">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      © <span id="year"></span> A C ELECTRICS (BARROW) LTD — Company No: 14333423
+    </footer>
+  </div>
+
+  <script>
+    // nav mobile
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+
+    // year
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    // form validate + không reload
+    const form = document.getElementById('contact-form');
+    const statusEl = document.querySelector('.js-form-status');
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = form.elements['name'].value.trim();
+        const email = form.elements['email'].value.trim();
+        const phone = form.elements['phone'].value.trim();
+        const msg = form.elements['message'].value.trim();
+
+        if (!name || !email || !phone || !msg) {
+          if (statusEl) {
+            statusEl.textContent = 'Please complete all required fields before sending.';
+          } else {
+            alert('Please complete all required fields before sending.');
+          }
+          return;
+        }
+
+        if (statusEl) {
+          statusEl.textContent = 'Thank you. Your enquiry has been recorded.';
+        }
+        form.reset();
+      });
+    }
+  </script>
+</body>
+</html>

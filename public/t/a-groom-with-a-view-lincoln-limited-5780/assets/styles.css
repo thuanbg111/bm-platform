@@ -1,0 +1,557 @@
+:root{
+  --text:#172233;
+  --muted:#616e86;
+  --bg:#f4f5fb;
+  --brand:#1f6f43;
+  --soft:#e9f4ee;
+  --radius-lg:18px;
+  --radius-md:12px;
+  --shadow-lg:0 18px 40px rgba(10,25,56,.16);
+  --shadow-md:0 10px 26px rgba(15,30,60,.12);
+}
+
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  min-height:100vh;
+}
+
+/* ========= LAYOUT CHUNG ========= */
+
+.shell{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:1rem;
+}
+
+.app{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:1rem;
+}
+
+/* Sidebar trên desktop, top-bar trên mobile */
+.sidebar{
+  background:#ffffff;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-md);
+  padding:1rem 1.1rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+/* ====== BRAND BLOCK DẠNG DỌC ====== */
+
+.brand-block{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.35rem;
+}
+
+.brand-block img{
+  width:60px;
+  height:60px;
+  border-radius:16px;
+  object-fit:contain;
+}
+
+.brand-text{
+  font-size:.88rem;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.brand-name{
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:1.05rem;
+  margin:0;
+}
+
+/* dòng “Registered in England & Wales • Company No: {{EIN}}” */
+.badge-small{
+  margin-top:.1rem;
+  padding:0;
+  border:0;
+  border-radius:0;
+  font-size:.8rem;
+  color:var(--muted);
+  background:transparent;
+  display:block;
+  line-height:1.35;
+}
+
+/* NAV */
+
+.nav-toggle{
+  border:0;
+  background:rgba(0,0,0,.02);
+  padding:.35rem .45rem;
+  border-radius:10px;
+  font-size:1.35rem;
+  cursor:pointer;
+}
+
+.nav-links{
+  display:none;
+  flex-direction:column;
+  gap:.4rem;
+}
+
+.nav-links a{
+  padding:.4rem .7rem;
+  border-radius:10px;
+  font-size:.9rem;
+  text-decoration:none;
+  color:var(--muted);
+}
+
+.nav-links a.is-active{
+  background:var(--soft);
+  color:var(--text);
+  font-weight:600;
+}
+
+.nav-links a:hover{
+  background:#eef4ff;
+  text-decoration:none;
+}
+
+/* MAIN AREA */
+
+.main{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:1rem;
+}
+
+/* ========= COMPONENTS ========= */
+
+.card{
+  background:#ffffff;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  padding:1.5rem 1.4rem;
+}
+
+.card-soft{
+  background:linear-gradient(135deg,#ffffff,#f3fbf7);
+}
+
+/* HERO */
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr);
+  gap:1.3rem;
+  align-items:center;
+}
+
+.hero-kicker{
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:700;
+  color:var(--muted);
+}
+
+/* NAME to – tagline nhỏ & nhạt hơn, không lấn NAME */
+.hero-title{
+  margin:.35rem 0 .6rem;
+  font-size:1.1rem;
+  font-weight:600;
+  color:var(--muted);
+  line-height:1.4;
+}
+
+.hero-title span{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:800;
+  font-size:1.9rem;
+  color:var(--text);
+  margin-bottom:.15rem;
+}
+
+.hero-meta{
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+.btn-row{
+  margin-top:1rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.65rem;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.7rem 1.1rem;
+  border-radius:999px;
+  border:1px solid #d4e4db;
+  font-size:.9rem;
+  cursor:pointer;
+  text-decoration:none;
+  color:var(--text);
+  background:#ffffff;
+}
+
+.btn-primary{
+  background:var(--brand);
+  border-color:var(--brand);
+  color:#ffffff;
+}
+
+.btn-outline{
+  background:transparent;
+}
+
+.btn:hover{
+  box-shadow:var(--shadow-md);
+  text-decoration:none;
+}
+
+.hero-figure{
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+
+.hero-figure img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* TITLES */
+
+.section-title{
+  font-size:1.1rem;
+  font-weight:700;
+  margin-bottom:.2rem;
+}
+
+.section-sub{
+  font-size:.9rem;
+  color:var(--muted);
+  margin-bottom:.8rem;
+}
+
+/* INFO GRID */
+
+.info-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:.6rem;
+  font-size:.9rem;
+}
+
+.info-label{
+  font-weight:600;
+  color:var(--muted);
+}
+
+.info-value{
+  margin-top:.1rem;
+}
+
+/* FEATURE LIST */
+
+.feature-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:.45rem;
+}
+
+.feature-list li{
+  font-size:.9rem;
+  padding-left:1.2rem;
+  position:relative;
+}
+
+.feature-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.55rem;
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:var(--brand);
+}
+
+/* 3-COLUMN TILES */
+
+.tiles{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:.9rem;
+  margin-top:.3rem;
+}
+
+.tile{
+  background:#ffffff;
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-md);
+  overflow:hidden;
+}
+
+.tile img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  display:block;
+}
+
+.tile-body{
+  padding:.85rem .95rem 1rem;
+}
+
+.tile-body h3{
+  font-size:1rem;
+  margin:0 0 .25rem;
+}
+
+.tile-body p{
+  font-size:.9rem;
+  margin:0;
+  color:var(--muted);
+}
+
+/* SPLIT 2 CỘT (Services, Governance, About…) */
+
+.split{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:1.1rem;
+}
+
+/* ẢNH LỚN Ở SERVICES / GOVERNANCE: KHÔNG BỊ PHÓNG QUÁ, KHÔNG BỊ CẮT KÌ LẠ */
+.split img{
+  width:100%;
+  height:auto;
+  max-height:320px;
+  object-fit:cover;
+  border-radius:20px;
+  display:block;
+}
+
+/* GALLERY */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.65rem;
+}
+
+.gallery img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+/* GOVERNANCE TIMELINE */
+
+.timeline{
+  list-style:none;
+  padding:0;
+  margin:0;
+  border-left:2px solid #dde4f1;
+}
+
+.timeline-item{
+  padding:.4rem 0 .6rem .9rem;
+  position:relative;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-6px;
+  top:.6rem;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--brand);
+}
+
+.timeline-title{
+  font-size:.95rem;
+  font-weight:600;
+}
+
+.timeline-body{
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+/* CONTACT */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:1rem;
+}
+
+.form{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:.7rem;
+}
+
+label{
+  font-size:.85rem;
+  font-weight:600;
+  display:grid;
+  gap:.3rem;
+}
+
+input,
+textarea{
+  font:inherit;
+  padding:.75rem .85rem;
+  border-radius:12px;
+  border:1px solid #ced7e5;
+  outline:0;
+  background:#fbfcff;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus{
+  border-color:var(--brand);
+  box-shadow:0 0 0 1px rgba(31,111,67,.25);
+}
+
+/* MAP CAO HƠN, GẦN BẰNG FORM */
+
+.map-embed iframe{
+  width:100%;
+  border:0;
+  border-radius:18px;
+  box-shadow:var(--shadow-lg);
+  aspect-ratio:4/3;
+  min-height:360px;
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:1.1rem;
+  padding:1rem;
+  font-size:.82rem;
+  color:var(--muted);
+  text-align:center;
+}
+
+/* ========= THEME VARIANTS CHO SCRIPT .py ========= */
+
+body.theme-1{
+  --brand:#1f6f43;
+  --soft:#e9f4ee;
+}
+
+body.theme-2{
+  --brand:#004b7a;
+  --soft:#e4f1fb;
+}
+
+body.theme-3{
+  --brand:#7a0026;
+  --soft:#fde7f0;
+}
+
+body.theme-4{
+  --brand:#784500;
+  --soft:#fff3df;
+}
+
+body.theme-5{
+  --brand:#38598a;
+  --soft:#e5edff;
+}
+
+/* ========= RESPONSIVE ========= */
+
+@media (min-width:800px){
+  .app{
+    grid-template-columns:270px minmax(0,1fr);
+    align-items:flex-start;
+  }
+
+  .sidebar{
+    flex-direction:column;
+    align-items:flex-start;
+    height:100%;
+    min-height:420px;
+  }
+
+  .nav-toggle{
+    display:none;
+  }
+
+  .nav-links{
+    display:flex !important;
+    flex-direction:column;
+    width:100%;
+  }
+
+  .nav-links a{
+    width:100%;
+  }
+
+  .main{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .hero-grid{
+    grid-template-columns:minmax(0,1.3fr) minmax(260px,1fr);
+  }
+
+  .tiles{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .split{
+    grid-template-columns:minmax(0,1.1fr) minmax(260px,1fr);
+  }
+
+  .gallery{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .contact-grid{
+    grid-template-columns:minmax(0,1.1fr) minmax(260px,1fr);
+  }
+}

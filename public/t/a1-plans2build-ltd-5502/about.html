@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Company profile — A1 PLANS2BUILD LTD</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-3">
+  <div class="shell">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <img src="images/logo.png" alt="A1 PLANS2BUILD LTD logo">
+          <div class="brand-text">
+            <div class="brand-name">A1 PLANS2BUILD LTD</div>
+            <div class="badge-small">Company No: 14335502</div>
+          </div>
+        </div>
+        <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav-links js-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="about.html" class="is-active">Company profile</a>
+          <a href="programs.html">Services</a>
+          <a href="governance.html">Governance</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <section class="card card-soft">
+          <h1 class="section-title">Company profile</h1>
+          <p class="section-sub">
+            A1 PLANS2BUILD LTD is a UK-registered private limited company. The company is incorporated under the Companies Act
+            and operates as a separate legal entity, with responsibility for its own obligations and contracts.
+          </p>
+          <div class="split">
+            <div>
+              <p>
+                The company carries out operational and support activities from the registered office at 21 Bescar Lane, Scarisbrick, Ormskirk, Lancashire, United Kingdom, L40 9QN.
+                Our role is to provide structured services, contractual arrangements and clear documentation for the
+                projects we undertake.
+              </p>
+              <p>
+                We maintain up-to-date statutory records, including the certificate of incorporation, constitutional
+                documents and relevant filings. Details of the company can be viewed through the public Companies House
+                register using the company number 14335502.
+              </p>
+              <p>
+                All work is agreed in writing with clients, with scope, price and responsibilities clearly defined before
+                we begin. Day-to-day communication is handled via email and telephone using the details published on this
+                website.
+              </p>
+            </div>
+            <div>
+              <div class="section-title">Key company information</div>
+              <div class="info-grid">
+                <div>
+                  <div class="info-label">Registered name</div>
+                  <div class="info-value">A1 PLANS2BUILD LTD</div>
+                </div>
+                <div>
+                  <div class="info-label">Company number</div>
+                  <div class="info-value">14335502</div>
+                </div>
+                <div>
+                  <div class="info-label">Registered office</div>
+                  <div class="info-value">21 Bescar Lane, Scarisbrick, Ormskirk, Lancashire, United Kingdom, L40 9QN</div>
+                </div>
+                <div>
+                  <div class="info-label">Email</div>
+                  <div class="info-value"><a href="mailto:contact@a1plans2build.altrixa.io.vn">contact@a1plans2build.altrixa.io.vn</a></div>
+                </div>
+                <div>
+                  <div class="info-label">Telephone</div>
+                  <div class="info-value"><a href="tel:+447400641970">+447400641970</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GALLERY 4 ẢNH -->
+        <section class="card">
+          <h2 class="section-title">Activity and operations</h2>
+          <p class="section-sub">A snapshot of the work carried out by the company and the environments we work in.</p>
+          <div class="gallery">
+            <img src="images/about.jpg" alt="Team and community activities">
+            <img src="images/community.jpg" alt="Work with partners and local organisations">
+            <img src="images/education.jpg" alt="Training, logistics or operational sites">
+            <img src="images/jobs.jpg" alt="Staff and contractors working on assignments">
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      © <span id="year"></span> A1 PLANS2BUILD LTD — Company No: 14335502
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if(btn && nav){
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if(y){ y.textContent = new Date().getFullYear(); }
+  </script>
+</body>
+</html>

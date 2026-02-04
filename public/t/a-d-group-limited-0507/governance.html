@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Governance &amp; compliance – A&D GROUP LIMITED</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-1">
+  <div class="page">
+    <header class="site-header">
+      <div class="brand">
+        <img src="images/logo.png" class="brand-logo" alt="A&D GROUP LIMITED logo">
+        <div class="brand-text">
+          <div class="brand-name">A&D GROUP LIMITED</div>
+          <div class="brand-meta">Company No: 14220507</div>
+        </div>
+      </div>
+      <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav class="nav js-nav" aria-label="Main navigation">
+        <a href="index.html">Overview</a>
+        <a href="about.html">Company profile</a>
+        <a href="programs.html">Services</a>
+        <a href="governance.html" class="is-active">Governance</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="card card-soft">
+        <h1 class="section-title">Governance and oversight</h1>
+        <p class="section-sub">
+          Directors of A&D GROUP LIMITED are responsible for the management of the company and for ensuring that statutory and
+          contractual obligations are met.
+        </p>
+        <div class="split">
+          <div>
+            <ul class="feature-list">
+              <li>Maintaining statutory registers of directors, shareholdings and key company information.</li>
+              <li>Submitting confirmation statements and other required filings to Companies House.</li>
+              <li>Retaining records of contracts, invoices, correspondence and reports.</li>
+              <li>Ensuring that services provided are in line with written agreements.</li>
+              <li>Using the official company email and telephone for external communication.</li>
+            </ul>
+          </div>
+          <div>
+            <img src="images/land.jpg"
+                 alt="Structured governance and reporting"
+                 style="border-radius:20px;box-shadow:var(--shadow-lg);width:100%;height:auto;">
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Oversight in practice</h2>
+        <p class="section-sub">
+          A simple outline of the governance cycle used for typical projects.
+        </p>
+        <div class="split">
+          <div>
+            <ol class="timeline">
+              <li class="timeline-item">
+                <div class="timeline-title">Planning and approval</div>
+                <div class="timeline-body">
+                  Proposed work is reviewed, including scope, costs and any associated risks.
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-title">Agreement signed</div>
+                <div class="timeline-body">
+                  An agreement is signed on behalf of the company, confirming responsibilities and deliverables.
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-title">Monitoring of delivery</div>
+                <div class="timeline-body">
+                  Progress is monitored and any significant changes are discussed with the client.
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-title">Reporting &amp; record keeping</div>
+                <div class="timeline-body">
+                  Work completed is summarised, and records are retained for future reference.
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div>
+            <img src="images/jobs.jpg"
+                 alt="Company management overseeing activities"
+                 style="border-radius:20px;box-shadow:var(--shadow-md);width:100%;height:auto;">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      © <span id="year"></span> A&D GROUP LIMITED — Company No: 14220507
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

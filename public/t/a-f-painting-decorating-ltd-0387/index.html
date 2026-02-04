@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>A&F PAINTING DECORATING LTD – UK Private Company</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+  <meta name="description" content="">
+</head>
+<body class="theme-1">
+  <div class="page">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-block">
+          <img src="images/logo.png" alt="A&F PAINTING DECORATING LTD logo" class="brand-logo">
+          <div class="brand-text">
+            <div class="brand-name">A&F PAINTING DECORATING LTD</div>
+            <div class="brand-meta">
+              Registered in England &amp; Wales • Company No: 14300387
+            </div>
+          </div>
+        </div>
+        <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav js-nav" aria-label="Main navigation">
+          <a href="index.html" class="is-active">Overview</a>
+          <a href="about.html">Company profile</a>
+          <a href="programs.html">Services</a>
+          <a href="governance.html">Governance</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- HERO -->
+      <section class="card card-soft">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-badge">
+              UK Private Limited Company
+            </div>
+            <h1 class="hero-title">
+              <span>A&F PAINTING DECORATING LTD</span>
+              Practical services delivered from the United Kingdom.
+            </h1>
+            <p class="hero-text">
+              A&F PAINTING DECORATING LTD is a private company limited by shares, incorporated and registered in the United Kingdom.
+              The company operates from its registered office at 8 Bargrove Road, Maidstone, England, ME14 5RR, providing clearly defined services
+              under written agreements.
+            </p>
+            <p class="hero-text">
+              Each engagement sets out the scope of work, timescales, responsibilities and communication channels.
+              This means that clients and platforms can see exactly what the company is responsible for and how
+              activities are recorded.
+            </p>
+            <p class="hero-text">
+              Key details – including our company number 14300387, registered office and contact information –
+              are presented on this website to support verification and due diligence checks.
+            </p>
+            <div class="hero-actions">
+              <a href="about.html" class="btn btn-primary">View company details</a>
+              <a href="programs.html" class="btn btn-outline">See services</a>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img src="images/hero.jpg" alt="Operations and offices of A&F PAINTING DECORATING LTD">
+          </div>
+        </div>
+      </section>
+
+      <!-- SNAPSHOT -->
+      <section class="card">
+        <h2 class="section-title">Company snapshot</h2>
+        <p class="section-sub">
+          Core information about the company as registered in the United Kingdom.
+        </p>
+        <div class="split">
+          <div>
+            <div class="info-grid">
+              <div>
+                <div class="info-label">Registered name</div>
+                <div class="info-value">A&F PAINTING DECORATING LTD</div>
+              </div>
+              <div>
+                <div class="info-label">Company number</div>
+                <div class="info-value">14300387</div>
+              </div>
+              <div>
+                <div class="info-label">Registered office</div>
+                <div class="info-value">8 Bargrove Road, Maidstone, England, ME14 5RR</div>
+              </div>
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value"><a href="mailto:contact@afpainting.altrano.io.vn">contact@afpainting.altrano.io.vn</a></div>
+              </div>
+              <div>
+                <div class="info-label">Telephone</div>
+                <div class="info-value"><a href="tel:+447400811698">+447400811698</a></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <ul class="feature-list">
+              <li>Incorporated as a private company limited by shares in England &amp; Wales.</li>
+              <li>Company details recorded on the public Companies House register for independent checks.</li>
+              <li>Directors responsible for day-to-day management and compliance with UK company law.</li>
+              <li>Written agreements used for services, projects and ongoing support.</li>
+              <li>Records kept to evidence work carried out and communications with clients.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES PREVIEW -->
+      <section class="card">
+        <h2 class="section-title">Work carried out by the company</h2>
+        <p class="section-sub">
+          Services focus on practical delivery and coordination, based on clearly documented instructions.
+        </p>
+        <div class="tile-grid">
+          <article class="tile">
+            <img src="images/land.jpg" alt="Operational support">
+            <div class="tile-body">
+              <h3>Operational support</h3>
+              <p>Arranging and coordinating day-to-day tasks on the ground in line with written agreements.</p>
+            </div>
+          </article>
+          <article class="tile">
+            <img src="images/jobs.jpg" alt="On-site and remote work">
+            <div class="tile-body">
+              <h3>On-site &amp; remote work</h3>
+              <p>Providing support on-site or remotely within the UK, depending on the nature of the assignment.</p>
+            </div>
+          </article>
+          <article class="tile">
+            <img src="images/relief.jpg" alt="Ongoing assistance">
+            <div class="tile-body">
+              <h3>Ongoing assistance</h3>
+              <p>Maintaining contact, providing updates and summarising work completed for each engagement.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      © <span id="year"></span> A&F PAINTING DECORATING LTD — Registered in England &amp; Wales • Company No: 14300387
+    </footer>
+  </div>
+
+  <script>
+    // mobile nav
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    // footer year
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

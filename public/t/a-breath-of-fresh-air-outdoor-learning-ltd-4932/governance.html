@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Governance &amp; compliance — A BREATH OF FRESH AIR- OUTDOOR LEARNING LTD</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-4">
+  <div class="shell">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <img src="images/logo.png" alt="A BREATH OF FRESH AIR- OUTDOOR LEARNING LTD logo">
+          <div class="brand-text">
+            <div class="brand-name">A BREATH OF FRESH AIR- OUTDOOR LEARNING LTD</div>
+            <div class="badge-small">Company No: 14334932</div>
+          </div>
+        </div>
+        <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav-links js-nav" aria-label="Main navigation">
+          <a href="index.html">Overview</a>
+          <a href="about.html">Company profile</a>
+          <a href="programs.html">Services</a>
+          <a href="governance.html" class="is-active">Governance</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <section class="card card-soft">
+          <h1 class="section-title">Governance and oversight</h1>
+          <p class="section-sub">
+            A BREATH OF FRESH AIR- OUTDOOR LEARNING LTD is managed by its directors, who are responsible for ensuring that the company complies with UK law
+            and meets its contractual obligations to clients.
+          </p>
+          <div class="split">
+            <div>
+              <ul class="feature-list">
+                <li>The company maintains statutory registers of directors and shareholdings.</li>
+                <li>Annual confirmation statements and other filings are submitted to Companies House when required.</li>
+                <li>Contracts with clients are agreed in writing and signed on behalf of the company.</li>
+                <li>Records of services delivered are retained to evidence the work completed.</li>
+                <li>Communication with partners and regulators is conducted using the official contact details.</li>
+              </ul>
+            </div>
+            <div>
+              <img src="images/land.jpg" alt="Structured governance and reporting" style="border-radius:20px;box-shadow:var(--shadow-lg);">
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">Oversight in practice</h2>
+          <p class="section-sub">An outline of the company’s typical governance cycle.</p>
+          <div class="split">
+            <div>
+              <ol class="timeline">
+                <li class="timeline-item">
+                  <div class="timeline-title">1. Planning and approval</div>
+                  <div class="timeline-body">Directors consider proposed work, including scope, risks and resources.</div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-title">2. Agreements signed</div>
+                  <div class="timeline-body">Once approved, written agreements are signed and work can begin.</div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-title">3. Monitoring delivery</div>
+                  <div class="timeline-body">Progress is monitored and recorded; adjustments are agreed with the client if needed.</div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-title">4. Reporting &amp; record-keeping</div>
+                  <div class="timeline-body">A summary of work is produced and stored alongside the supporting records.</div>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <img src="images/jobs.jpg" alt="Directors overseeing company activities" style="border-radius:20px;box-shadow:var(--shadow-md);">
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      © <span id="year"></span> A BREATH OF FRESH AIR- OUTDOOR LEARNING LTD — Company No: 14334932
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if(btn && nav){
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if(y){ y.textContent = new Date().getFullYear(); }
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Company profile – 99 STAPLETON HALL ROAD FREEHOLD LIMITED</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body class="theme-2">
+  <div class="page">
+    <header class="site-header">
+      <div class="brand">
+        <img src="images/logo.png" class="brand-logo" alt="99 STAPLETON HALL ROAD FREEHOLD LIMITED logo">
+        <div class="brand-text">
+          <div class="brand-name">99 STAPLETON HALL ROAD FREEHOLD LIMITED</div>
+          <div class="brand-meta">Company No: 14332905</div>
+        </div>
+      </div>
+      <button class="nav-toggle js-nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav class="nav js-nav" aria-label="Main navigation">
+        <a href="index.html">Overview</a>
+        <a href="about.html" class="is-active">Company profile</a>
+        <a href="programs.html">Services</a>
+        <a href="governance.html">Governance</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="card card-soft">
+        <h1 class="section-title">Company profile</h1>
+        <p class="section-sub">
+          99 STAPLETON HALL ROAD FREEHOLD LIMITED is a private company limited by shares, incorporated in the United Kingdom and operating from its
+          registered office at 99 Stapleton Hall Road, London, England, N4 4RH.
+        </p>
+        <div class="split">
+          <div>
+            <p>
+              The company’s role is to provide clearly defined services and support for clients. Work is undertaken under
+              written agreements which set out responsibilities, pricing and timescales before any activity begins.
+            </p>
+            <p>
+              Directors oversee the company’s affairs and ensure that statutory obligations are met, including public
+              filings, record keeping and adherence to UK company law. Internal procedures are designed to keep records
+              of the work carried out and the communications with clients.
+            </p>
+            <p>
+              Corporate details, including the registered office and company number 14332905, can be verified using the
+              public Companies House register. This website summarises the services we offer and the ways to contact us.
+            </p>
+          </div>
+          <div>
+            <div class="info-grid">
+              <div>
+                <div class="info-label">Registered name</div>
+                <div class="info-value">99 STAPLETON HALL ROAD FREEHOLD LIMITED</div>
+              </div>
+              <div>
+                <div class="info-label">Company number</div>
+                <div class="info-value">14332905</div>
+              </div>
+              <div>
+                <div class="info-label">Registered office</div>
+                <div class="info-value">99 Stapleton Hall Road, London, England, N4 4RH</div>
+              </div>
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value"><a href="mailto:contact@99stapleton.altriva.io.vn">contact@99stapleton.altriva.io.vn</a></div>
+              </div>
+              <div>
+                <div class="info-label">Telephone</div>
+                <div class="info-value"><a href="tel:+447413305620">+447413305620</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY 4 ẢNH -->
+      <section class="card">
+        <h2 class="section-title">Activity and environments</h2>
+        <p class="section-sub">
+          Images representing the type of work the company is involved in across the UK.
+        </p>
+        <div class="gallery">
+          <img src="images/about.jpg" alt="Staff working with clients">
+          <img src="images/community.jpg" alt="Work with partners and communities">
+          <img src="images/education.jpg" alt="Training and operational facilities">
+          <img src="images/jobs.jpg" alt="Team members during assignments">
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      © <span id="year"></span> 99 STAPLETON HALL ROAD FREEHOLD LIMITED — Company No: 14332905
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.js-nav-toggle');
+    const nav = document.querySelector('.js-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const visible = getComputedStyle(nav).display !== 'none';
+        nav.style.display = visible ? 'none' : 'flex';
+      });
+    }
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
