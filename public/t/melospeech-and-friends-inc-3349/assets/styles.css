@@ -1,0 +1,58 @@
+:root{
+  --ink:#101828; --muted:#667085; --paper:#fff; --line:#e6ecfa;
+  --brand:#2256d8; --brand-ink:#143a9a; --soft:#eef3ff;
+  --radius:18px; --shadow:0 12px 30px rgba(16,24,40,.08)
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.7
+}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block;border-radius:14px}
+
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:10}
+.header-wrap{width:min(1120px,94%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+.header-wrap nav a{margin-left:.6rem;padding:.5rem .75rem;border-radius:10px}
+.header-wrap nav a:hover{background:var(--soft);text-decoration:none}
+
+main{min-height:100svh;display:flex;flex-direction:column}
+.container{width:min(1120px,94%);margin-inline:auto}
+.section{padding:2rem 0}
+.c4b9a2e15d3{padding:2.2rem 0;border-bottom:1px solid var(--line)}
+h1{font-size:2rem;margin:0 0 .2rem 0}
+h2{font-size:1.5rem;margin:.2rem 0 .6rem}
+.c04fa50597b{max-width:78ch}
+
+.grid{display:grid;gap:1.2rem}
+.two{grid-template-columns:1fr}
+.list .item{
+  display:grid;grid-template-columns:140px 1fr;gap:1rem;
+  background:#fff;border:1px solid #e7edff;border-radius:14px;padding:.95rem;box-shadow:var(--shadow)
+}
+
+.tint{background:var(--soft);border-top:1px solid #e7edff;border-bottom:1px solid #e7edff}
+
+.c9c546e6c14{display:grid;grid-template-columns:1fr;gap:.9rem}
+label{display:grid;gap:.35rem;font-weight:600}
+input,textarea{
+  width:100%;padding:.75rem .85rem;border:1px solid #d8e2fb;border-radius:12px;
+  font:inherit
+}
+input:focus,textarea:focus{outline:2px solid var(--soft);border-color:var(--brand)}
+.cdfc719eb7c{display:inline-block;padding:.75rem 1rem;border:1px solid #d8e2fb;border-radius:12px;background:#fff}
+.cdfc719eb7c:hover{box-shadow:var(--shadow);text-decoration:none}
+.btn-primary{background:var(--brand);border-color:var(--brand);color:#fff}
+
+.map-embed iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;box-shadow:var(--shadow)}
+.small{color:var(--muted);font-size:.94rem}
+
+.footer{border-top:1px solid var(--line);background:#f8faff;margin-top:auto}
+.footer .grid{display:grid;grid-template-columns:1fr;gap:1rem;padding:1.3rem 0}
+
+@media(min-width:900px){
+  .two{grid-template-columns:1.25fr 1fr}
+}
