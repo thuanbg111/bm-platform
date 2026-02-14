@@ -1,0 +1,25 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/programs",
+      "destination": "/programs.html"
+    },
+    {
+      "source": "/governance",
+      "destination": "/governance.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/thank-you",
+      "destination": "/thank-you.html"
+    }
+  ]
+}
